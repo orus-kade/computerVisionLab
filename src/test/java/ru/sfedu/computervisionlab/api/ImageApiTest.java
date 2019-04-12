@@ -16,6 +16,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.opencv.core.Mat;
+import ru.sfedu.computervisionlab.Constants;
 
 /**
  *
@@ -53,7 +54,13 @@ public class ImageApiTest {
      */
 
     @Test
-    public void testSomeMethod() throws IOException {  
+    public void testSomeMethod() throws IOException { 
+//        String imName = "Stars.png";
+//        String imName = "305126.jpg";
+        String imName = "15_8165_oboi_oboi_star_wars_1440x900.jpg";
+//        Constants.Channels ch = Constants.Channels.RED;
+        Constants.Channels ch = Constants.Channels.GREEN;
+//        Constants.Channels ch = Constants.Channels.BLUE;
         logger.info("Trying to load library...");
         try {        
             api = new ImageApi();
@@ -62,9 +69,10 @@ public class ImageApiTest {
             logger.error(ex.getMessage());
         }
         logger.info("Trying to load picture");
-        Mat  mat = api.loadImage();
+        Mat  mat = api.loadImage(imName);
         api.showImage(mat);
-        System.in.read();
-    }
-    
+        mat = api.changeImage(mat, ch);
+        api.saveImage(mat, "res_" + ch.toString() + "_" + imName);
+        api.showImage(mat);
+    }    
 }

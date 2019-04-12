@@ -50,18 +50,25 @@ public class ImageApi {
         }
     }
 
-    public Mat loadImage() throws IOException {
-        Mat srcImage = Imgcodecs.imread(config.getConfigurationEntry(Constants.DIR_PATH) + config.getConfigurationEntry(Constants.SCR_IMAGE_NAME));
+    public Mat loadImage(String imageName) throws IOException {
+        Mat srcImage = Imgcodecs.imread(config.getConfigurationEntry(Constants.IMAGE_DIR_PATH) + imageName);
+        return srcImage;    
+    }
+    
+    public Mat changeImage(Mat srcImage, Constants.Channels channel){
+        logger.info("Changing " + channel.toString() + " channel...");
+        int ch = channel.ordinal();
         int totalBytes = (int) (srcImage.total() * srcImage.elemSize());
         byte buffer[] = new byte[totalBytes];
         srcImage.get(0, 0, buffer);
         for (int i = 0; i < totalBytes; i++) {
-            if (i % srcImage.channels() != 0) {
+            if (i % srcImage.channels() == ch) {
                 buffer[i] = 0;
             }
         }
         srcImage.put(0, 0, buffer);
-        return srcImage;    }
+        return srcImage;
+    }
 
     public void showImage(Mat m) {
         int type = BufferedImage.TYPE_BYTE_GRAY;
@@ -83,6 +90,10 @@ public class ImageApi {
         frame.add(lbl);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    
+    public void saveImage(Mat image, String imName) throws IOException{
+        Imgcodecs.imwrite(config.getConfigurationEntry(Constants.IMAGE_RESULTS_DIR_PATH) + imName, image);
     }
 
 }
