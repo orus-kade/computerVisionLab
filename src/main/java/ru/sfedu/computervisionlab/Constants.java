@@ -50,5 +50,9 @@ public class Constants {
      *
      */
     public static String TEST_PROP = "my_prop";
-
+    
+    public static String DIR_PATH = "image_dir";
+    
+    public static String SCR_IMAGE_NAME = "image_name";    
+    
 }
