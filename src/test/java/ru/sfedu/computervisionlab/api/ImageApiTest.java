@@ -16,6 +16,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.opencv.core.Mat;
+import org.opencv.core.Size;
+import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.imgproc.Imgproc;
 import ru.sfedu.computervisionlab.Constants;
 
 /**
@@ -55,9 +58,9 @@ public class ImageApiTest {
 
     @Test
     public void testSomeMethod() throws IOException { 
-//        String imName = "Stars.png";
+        String imName = "Stars.png";
 //        String imName = "305126.jpg";
-        String imName = "15_8165_oboi_oboi_star_wars_1440x900.jpg";
+//        String imName = "15_8165_oboi_oboi_star_wars_1440x900.jpg";
 //        Constants.Channels ch = Constants.Channels.RED;
         Constants.Channels ch = Constants.Channels.GREEN;
 //        Constants.Channels ch = Constants.Channels.BLUE;
@@ -74,5 +77,22 @@ public class ImageApiTest {
         mat = api.changeImage(mat, ch);
         api.saveImage(mat, "res_" + ch.toString() + "_" + imName);
         api.showImage(mat);
-    }    
+    }
+
+    @Test
+    public void testMorfology(){
+//        String imName = "Stars.png";
+//        String imName = "305126.jpg";
+//        String imName = "15_8165_oboi_oboi_star_wars_1440x900.jpg";
+        String imName = "number.jpg";
+        logger.info("Trying to load library...");
+        try {        
+            api = new ImageApi();
+            logger.debug("");
+        } catch (Exception ex) {
+            logger.error(ex.getMessage());
+        }
+        logger.info("Trying to modify picture");
+        api.morfologyTest(imName);     
+    }
 }

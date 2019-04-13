@@ -4,6 +4,7 @@ import java.awt.FlowLayout;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.io.IOException;
+import java.util.Arrays;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,7 +14,9 @@ import ru.sfedu.computervisionlab.utils.Utils;
 import ru.sfedu.computervisionlab.Constants;
 import ru.sfedu.computervisionlab.utils.ConfigurationUtil;
 import org.opencv.core.Mat;
+import org.opencv.core.Size;
 import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.imgproc.Imgproc;
 
 /**
  *
@@ -24,6 +27,7 @@ public class ImageApi {
     private static final Logger logger = LogManager.getLogger();
     private ConfigurationUtil config = new ConfigurationUtil(Constants.RESORCES_PATH);
 
+    
     /**
      *
      * @throws Exception
@@ -94,6 +98,45 @@ public class ImageApi {
     
     public void saveImage(Mat image, String imName) throws IOException{
         Imgcodecs.imwrite(config.getConfigurationEntry(Constants.IMAGE_RESULTS_DIR_PATH) + imName, image);
+    }
+    
+    public void morfologyTest(String fileName) {
+        try {
+//            String fileName = "numpl5.jpg";
+            String prfName = "mrf_";
+//            Mat src = Imgcodecs.imread(Constants.IMAGE_DIR_PATH + fileName, Imgcodecs.IMREAD_COLOR);
+            logger.debug("Image name: " + config.getConfigurationEntry(Constants.IMAGE_DIR_PATH) + fileName + "   lolol");
+            Mat src = Imgcodecs.imread(config.getConfigurationEntry(Constants.IMAGE_DIR_PATH) + fileName);
+            Mat dst = src.clone();
+            Mat element_10 = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(10, 10));
+            Mat element_01 = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(1, 1));
+            Mat element_05 = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(5, 5));
+            Imgproc.erode(src, dst, element_10);
+            Imgcodecs.imwrite(config.getConfigurationEntry(Constants.IMAGE_RESULTS_DIR_PATH) + prfName + "erode_10_" + fileName, dst);
+            showImage(dst);
+            dst = src.clone();
+            Imgproc.erode(src, dst, element_01);
+            Imgcodecs.imwrite(config.getConfigurationEntry(Constants.IMAGE_RESULTS_DIR_PATH)  + prfName + "erode_01_" + fileName, dst);
+            showImage(dst);
+            dst = src.clone();
+            Imgproc.erode(src, dst, element_05);
+            Imgcodecs.imwrite(config.getConfigurationEntry(Constants.IMAGE_RESULTS_DIR_PATH)  + prfName + "erode_05_" + fileName, dst);
+            showImage(dst);
+            dst = src.clone();
+            Imgproc.dilate(src, dst, element_10);
+            Imgcodecs.imwrite(config.getConfigurationEntry(Constants.IMAGE_RESULTS_DIR_PATH)  + prfName + "dilate_10_" + fileName, dst);
+            showImage(dst);
+            dst = src.clone();
+            Imgproc.dilate(src, dst, element_01);
+            Imgcodecs.imwrite(config.getConfigurationEntry(Constants.IMAGE_RESULTS_DIR_PATH)  + prfName + "dilate_01_" + fileName, dst);
+            showImage(dst);
+            dst = src.clone();
+            Imgproc.dilate(src, dst, element_05);
+            Imgcodecs.imwrite(config.getConfigurationEntry(Constants.IMAGE_RESULTS_DIR_PATH)  + prfName + "dilate_05_" + fileName, dst);
+            showImage(dst);
+        } catch (Exception ex) {
+            System.err.println(ex);
+        }
     }
 
 }
