@@ -15,6 +15,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Size;
 import org.opencv.imgcodecs.Imgcodecs;
@@ -94,5 +95,57 @@ public class ImageApiTest {
         }
         logger.info("Trying to modify picture");
         api.morfologyTest(imName);     
+    }
+    
+    @Test
+    public void testFillFlood() throws IOException{
+//        String imName = "Stars.png";
+//        String imName = "305126.jpg";
+        String imName = "15_8165_oboi_oboi_star_wars_1440x900.jpg";
+//        String imName = "number.jpg";
+        logger.info("Trying to load library...");
+        try {        
+            api = new ImageApi();
+            logger.debug("");
+        } catch (Exception ex) {
+            logger.error(ex.getMessage());
+        }
+        Mat srcImage = api.loadImage(imName);
+        srcImage = api.fillFlood(srcImage);
+        api.saveImage(srcImage, "fillFlood_" + imName);
+    }
+    
+    @Test
+    public void testPyramids() throws IOException{
+//        String imName = "Stars.png";
+//        String imName = "305126.jpg";
+        String imName = "15_8165_oboi_oboi_star_wars_1440x900.jpg";
+//        String imName = "number.jpg";
+        logger.info("Trying to load library...");
+        try {        
+            api = new ImageApi();
+            logger.debug("");
+        } catch (Exception ex) {
+            logger.error(ex.getMessage());
+        }
+        Mat srcImage = api.loadImage(imName);
+        api.pyramids(srcImage);
+//        api.saveImage(srcImage, "fillFlood_" + imName);
+    }
+    
+    @Test 
+    public void testOneMoreMethod() throws IOException{
+//        String imName = "15_8165_oboi_oboi_star_wars_1440x900.jpg";
+        String imName = "number.jpg";
+//        String imName = "Stars.png";
+        logger.info("Trying to load library...");
+        try {        
+            api = new ImageApi();
+            logger.debug("");
+        } catch (Exception ex) {
+            logger.error(ex.getMessage());
+        }
+        Mat srcImage = api.loadImage(imName);
+        api.oneMoreMethod(srcImage, imName);
     }
 }

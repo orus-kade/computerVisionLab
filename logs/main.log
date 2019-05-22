@@ -714,3 +714,295 @@
 13 Apr 2019 12:14:53,888 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
 13 Apr 2019 12:14:53,888 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to modify picture
 13 Apr 2019 12:14:53,889 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - Image name: /home/orus-kade/NetBeansProjects/ComputerVisionLab/images/sources/number.jpg   lolol
+13 Apr 2019 12:36:39,810 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+13 Apr 2019 12:36:39,818 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+13 Apr 2019 12:36:39,819 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+13 Apr 2019 12:36:39,819 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+13 Apr 2019 12:36:39,820 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+13 Apr 2019 12:36:39,820 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+13 Apr 2019 12:36:39,830 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+13 Apr 2019 12:36:39,830 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+13 Apr 2019 12:36:39,830 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to modify picture
+13 Apr 2019 12:36:39,831 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - Image name: /home/orus-kade/NetBeansProjects/ComputerVisionLab/images/sources/number.jpg   lolol
+13 Apr 2019 12:37:17,692 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+13 Apr 2019 12:37:17,703 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+13 Apr 2019 12:37:17,704 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+13 Apr 2019 12:37:17,704 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+13 Apr 2019 12:37:17,705 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+13 Apr 2019 12:37:17,705 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+13 Apr 2019 12:37:17,714 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+13 Apr 2019 12:37:17,715 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+13 Apr 2019 12:37:17,715 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to modify picture
+13 Apr 2019 12:37:17,715 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - Image name: /home/orus-kade/NetBeansProjects/ComputerVisionLab/images/sources/number.jpg   lolol
+13 Apr 2019 12:39:10,313 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+13 Apr 2019 12:39:10,324 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+13 Apr 2019 12:39:10,325 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+13 Apr 2019 12:39:10,326 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+13 Apr 2019 12:39:10,327 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+13 Apr 2019 12:39:10,328 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+13 Apr 2019 12:39:10,336 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+13 Apr 2019 12:39:10,337 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+13 Apr 2019 12:39:10,337 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to modify picture
+13 Apr 2019 12:39:10,337 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - Image name: /home/orus-kade/NetBeansProjects/ComputerVisionLab/images/sources/305126.jpg   lolol
+13 Apr 2019 12:46:23,049 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+13 Apr 2019 12:46:23,058 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+13 Apr 2019 12:46:23,058 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+13 Apr 2019 12:46:23,059 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+13 Apr 2019 12:46:23,060 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+13 Apr 2019 12:46:23,060 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+13 Apr 2019 12:46:23,069 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+13 Apr 2019 12:46:23,069 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+13 Apr 2019 12:46:23,070 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to modify picture
+13 Apr 2019 12:46:23,070 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - Image name: /home/orus-kade/NetBeansProjects/ComputerVisionLab/images/sources/number.jpg   lolol
+13 Apr 2019 12:47:21,340 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+13 Apr 2019 12:47:21,351 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+13 Apr 2019 12:47:21,352 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+13 Apr 2019 12:47:21,353 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+13 Apr 2019 12:47:21,354 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+13 Apr 2019 12:47:21,354 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+13 Apr 2019 12:47:21,367 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+13 Apr 2019 12:47:21,367 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+13 Apr 2019 12:47:21,367 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to modify picture
+13 Apr 2019 12:47:21,368 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - Image name: /home/orus-kade/NetBeansProjects/ComputerVisionLab/images/sources/number.jpg   lolol
+13 Apr 2019 12:49:30,917 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+13 Apr 2019 12:49:30,925 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+13 Apr 2019 12:49:30,926 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+13 Apr 2019 12:49:30,927 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+13 Apr 2019 12:49:30,927 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+13 Apr 2019 12:49:30,927 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+13 Apr 2019 12:49:30,936 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+13 Apr 2019 12:49:30,936 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+13 Apr 2019 12:49:30,936 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to modify picture
+13 Apr 2019 12:49:30,936 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - Image name: /home/orus-kade/NetBeansProjects/ComputerVisionLab/images/sources/number.jpg   lolol
+13 Apr 2019 12:59:35,634 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+13 Apr 2019 12:59:35,644 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+13 Apr 2019 12:59:35,645 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+13 Apr 2019 12:59:35,646 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+13 Apr 2019 12:59:35,647 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+13 Apr 2019 12:59:35,648 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+13 Apr 2019 12:59:35,657 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+13 Apr 2019 12:59:35,657 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+13 Apr 2019 12:59:35,657 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to modify picture
+13 Apr 2019 12:59:35,657 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - Image name: /home/orus-kade/NetBeansProjects/ComputerVisionLab/images/sources/number.jpg   lolol
+13 Apr 2019 12:59:59,024 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+13 Apr 2019 12:59:59,032 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+13 Apr 2019 12:59:59,033 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+13 Apr 2019 12:59:59,033 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+13 Apr 2019 12:59:59,034 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+13 Apr 2019 12:59:59,034 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+13 Apr 2019 12:59:59,044 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+13 Apr 2019 12:59:59,044 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+13 Apr 2019 12:59:59,044 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to modify picture
+13 Apr 2019 12:59:59,045 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - Image name: /home/orus-kade/NetBeansProjects/ComputerVisionLab/images/sources/number.jpg   lolol
+27 Apr 2019 10:36:05,071 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 10:36:05,090 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 10:36:05,091 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 10:36:05,100 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 10:36:05,101 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 10:36:05,101 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 10:36:05,112 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 10:36:05,113 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 10:36:05,113 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load picture
+27 Apr 2019 10:36:05,434 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Changing GREEN channel...
+27 Apr 2019 10:55:36,745 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 10:55:36,754 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 10:55:36,755 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 10:55:36,756 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 10:55:36,757 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 10:55:36,757 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 10:55:36,766 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 10:55:36,766 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 10:55:36,766 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to modify picture
+27 Apr 2019 10:55:36,766 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - Image name: /home/orus-kade/NetBeansProjects/ComputerVisionLab/images/sources/number.jpg   lolol
+27 Apr 2019 11:37:40,914 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 11:37:40,923 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 11:37:40,923 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 11:37:40,924 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 11:37:40,925 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 11:37:40,925 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 11:37:40,934 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 11:37:40,934 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 11:39:05,655 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 11:39:05,668 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 11:39:05,670 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 11:39:05,671 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 11:39:05,672 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 11:39:05,672 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 11:39:05,682 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 11:39:05,682 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 11:39:34,635 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 11:39:34,643 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 11:39:34,644 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 11:39:34,645 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 11:39:34,646 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 11:39:34,646 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 11:39:34,654 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 11:39:34,655 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 11:40:31,183 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 11:40:31,192 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 11:40:31,193 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 11:40:31,194 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 11:40:31,195 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 11:40:31,195 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 11:40:31,205 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 11:40:31,205 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 11:43:36,955 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 11:43:36,963 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 11:43:36,963 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 11:43:36,964 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 11:43:36,965 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 11:43:36,965 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 11:43:36,974 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 11:43:36,974 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 11:48:59,303 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 11:48:59,310 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 11:48:59,311 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 11:48:59,312 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 11:48:59,312 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 11:48:59,313 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 11:48:59,321 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 11:48:59,322 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 12:15:41,950 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 12:15:41,970 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 12:15:41,972 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:15:41,973 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 12:15:41,974 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:15:41,975 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 12:15:41,984 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 12:15:41,984 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 12:21:45,182 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 12:21:45,189 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 12:21:45,190 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:21:45,191 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 12:21:45,192 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:21:45,192 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 12:21:45,200 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 12:21:45,200 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 12:22:15,089 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 12:22:15,096 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 12:22:15,097 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:22:15,098 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 12:22:15,098 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:22:15,098 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 12:22:15,106 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 12:22:15,106 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 12:23:12,730 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 12:23:12,738 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 12:23:12,738 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:23:12,739 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 12:23:12,740 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:23:12,740 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 12:23:12,747 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 12:23:12,748 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 12:24:03,548 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 12:24:03,558 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 12:24:03,559 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:24:03,560 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 12:24:03,560 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:24:03,560 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 12:24:03,568 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 12:24:03,568 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 12:24:35,316 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 12:24:35,326 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 12:24:35,327 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:24:35,328 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 12:24:35,328 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:24:35,329 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 12:24:35,337 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 12:24:35,337 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 12:25:01,706 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 12:25:01,713 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 12:25:01,714 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:25:01,715 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 12:25:01,716 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:25:01,716 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 12:25:01,724 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 12:25:01,725 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 12:25:10,115 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 12:25:10,127 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 12:25:10,128 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:25:10,129 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 12:25:10,129 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:25:10,130 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 12:25:10,138 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 12:25:10,138 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 12:36:18,207 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 12:36:18,217 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 12:36:18,218 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:36:18,218 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 12:36:18,219 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:36:18,219 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 12:36:18,228 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 12:36:18,228 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 12:36:26,288 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 12:36:26,301 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 12:36:26,302 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:36:26,303 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 12:36:26,304 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:36:26,304 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 12:36:26,313 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 12:36:26,313 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 12:36:51,739 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 12:36:51,752 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 12:36:51,753 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:36:51,754 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 12:36:51,755 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:36:51,755 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 12:36:51,765 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 12:36:51,765 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 12:49:25,118 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 12:49:25,128 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 12:49:25,129 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:49:25,130 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 12:49:25,130 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:49:25,130 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 12:49:25,141 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 12:49:25,141 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 12:50:06,317 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 12:50:06,328 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 12:50:06,329 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:50:06,329 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 12:50:06,330 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:50:06,330 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 12:50:06,340 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 12:50:06,340 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 12:51:41,985 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 12:51:41,994 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 12:51:41,994 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:51:41,995 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 12:51:41,996 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:51:41,996 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 12:51:42,005 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 12:51:42,005 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 12:52:23,138 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 12:52:23,147 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 12:52:23,148 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:52:23,149 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 12:52:23,150 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:52:23,150 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 12:52:23,158 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 12:52:23,159 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 12:54:20,784 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 12:54:20,792 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 12:54:20,793 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:54:20,794 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 12:54:20,795 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:54:20,795 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 12:54:20,804 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 12:54:20,805 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 12:59:49,594 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 12:59:49,604 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 12:59:49,604 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:59:49,605 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 12:59:49,605 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:59:49,606 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 12:59:49,614 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 12:59:49,614 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
+27 Apr 2019 12:59:58,531 [main] INFO  ru.sfedu.computervisionlab.api.ImageApiTest - Trying to load library...
+27 Apr 2019 12:59:58,543 [main] INFO  ru.sfedu.computervisionlab.api.ImageApi - Checking OS.....
+27 Apr 2019 12:59:58,544 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:59:58,545 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi - LINUX  lol
+27 Apr 2019 12:59:58,546 [main] DEBUG ru.sfedu.computervisionlab.utils.Utils - linux
+27 Apr 2019 12:59:58,546 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 1
+27 Apr 2019 12:59:58,558 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApi -   lol 2
+27 Apr 2019 12:59:58,558 [main] DEBUG ru.sfedu.computervisionlab.api.ImageApiTest - 
