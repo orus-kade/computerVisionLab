@@ -20,7 +20,7 @@ public class Utils {
      */
     public static Constants.OSType getOperatingSystemType() {
         String OS = System.getProperty("os.name", "generic").toLowerCase(Locale.ENGLISH);
-        logger.debug(OS);
+        logger.debug(OS + " is cureent OS");
         if ((OS.contains("mac")) || (OS.contains("darwin"))) {
             return Constants.OSType.MACOS;
         } else if (OS.contains("win")) {

@@ -57,6 +57,19 @@ public class ImageApiTest {
      *
      */
 
+    @Test 
+    public void initializeTest(){
+        logger.info("Trying to initialize the library...");
+        try {
+            api = new ImageApi();
+            logger.info("Done!");
+        } catch (Exception ex) {
+            logger.error(ex.getMessage());
+            fail(ex.getMessage());
+        }
+        
+    }
+    
     @Test
     public void testSomeMethod() throws IOException { 
         String imName = "Stars.png";

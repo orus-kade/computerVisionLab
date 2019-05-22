@@ -46,12 +46,9 @@ public class ImageApi {
     public ImageApi() throws Exception {
         logger.info("Checking OS.....");
         // init the API with curent os..
-        logger.debug(Utils.getOperatingSystemType() + "  lol");
         switch (Utils.getOperatingSystemType()) {
             case LINUX:
-                logger.debug("  lol 1");
-                System.load(config.getConfigurationEntry(Constants.PATH_TO_NATIVE_LIB_LINUX));
-                logger.debug("  lol 2");
+                System.load(config.getConfigurationEntry(Constants.PATH_TO_NATIVE_LIB_LINUX));;
                 break;
             case WINDOWS:
                 throw new Exception("Windows OS does not support!!!!!!!!");
@@ -61,7 +58,6 @@ public class ImageApi {
                 throw new Exception("Current OS does not support!!!!!");
             default:
                 throw new Exception("Your OS does not support!!!");
-
         }
     }
 
