@@ -51,15 +51,39 @@ public class Constants {
      */
     public static String TEST_PROP = "my_prop";
     
+    /**
+     *
+     */
     public static String IMAGE_DIR_PATH = "image_dir";
     
+    /**
+     *
+     */
     public static String IMAGE_RESULTS_DIR_PATH = "image_dir_res";
     
+    /**
+     *
+     */
     public static String SCR_IMAGE_NAME = "image_name";    
     
+    /**
+     *
+     */
     public enum Channels{
+
+        /**
+         *
+         */
         BLUE,
+
+        /**
+         *
+         */
         GREEN,
+
+        /**
+         *
+         */
         RED
     }
 }
