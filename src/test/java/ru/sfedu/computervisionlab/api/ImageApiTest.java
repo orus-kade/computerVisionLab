@@ -175,8 +175,9 @@ public class ImageApiTest {
     public void testPyramids() throws IOException{
 //        String imName = "Stars.png";
 //        String imName = "305126.jpg";
-        String imName = "15_8165_oboi_oboi_star_wars_1440x900.jpg";
-//        String imName = "number.jpg";
+//        String imName = "15_8165_oboi_oboi_star_wars_1440x900.jpg";
+        String imName = "number.jpg";
+//        String imName = "34190519102015.jpg";
         logger.info("Trying to load library...");
         try {        
             api = new ImageApi();
@@ -185,8 +186,8 @@ public class ImageApiTest {
             logger.error(ex.getMessage());
         }
         Mat srcImage = api.loadImage(imName);
-        api.pyramids(srcImage);
-//        api.saveImage(srcImage, "fillFlood_" + imName);
+        api.pyramids(srcImage, 2);
+        api.saveImage(srcImage, "subtract_" + imName);
     }
     
 //    @Test 

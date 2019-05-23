@@ -231,15 +231,23 @@ public class ImageApi {
      *
      * @param srcImage
      */
-    public void pyramids(Mat srcImage){
-        Mat mask = new Mat();
+    public Mat pyramids(Mat srcImage, int i){
+        Size imSize = new Size(srcImage.cols(), srcImage.rows());
+//        Size downSize = new Size(srcImage.cols()/i, srcImage.rows()/i);
+//        logger.debug(srcImage.cols()/i + " " + srcImage.rows()/i);
+        Mat mask = srcImage.clone();
         showImage(srcImage, "source");
-        Imgproc.pyrDown(srcImage, mask);
-        showImage(mask, "pyrDown");
-        Imgproc.pyrUp(mask, mask);
-        showImage(mask, "pyrUp");
+        for (int k = 0; k<i; k++){
+            Imgproc.pyrDown(mask, mask);
+            showImage(mask, "pyrDown_" + k);
+        }
+        for (int k = 0; k<i; k++){
+            Imgproc.pyrUp(mask, mask);
+            showImage(mask, "pyrUp_" + k);
+        }
         Core.subtract(srcImage, mask, mask);
-        showImage(mask, "subtrack");
+        showImage(mask, "subtrack1");
+        return mask;
     }
     
 //    public void oneMoreMethod(Mat srcImage, String imgName) throws IOException{
