@@ -190,21 +190,24 @@ public class ImageApiTest {
         api.saveImage(srcImage, "subtract_" + imName);
     }
     
-//    @Test 
-//    public void testOneMoreMethod() throws IOException{
-////        String imName = "15_8165_oboi_oboi_star_wars_1440x900.jpg";
+    @Test 
+    public void testOneMoreMethod() throws IOException{
+//        String imName = "15_8165_oboi_oboi_star_wars_1440x900.jpg";
 //        String imName = "number.jpg";
-////        String imName = "Stars.png";
-//        logger.info("Trying to load library...");
-//        try {        
-//            api = new ImageApi();
-//            logger.debug("");
-//        } catch (Exception ex) {
-//            logger.error(ex.getMessage());
-//        }
-//        Mat srcImage = api.loadImage(imName);
-//        api.oneMoreMethod(srcImage, imName);
-//    }
+//        String imName = "Stars.png";
+//        String imName = "Untitled.png";
+//        String imName = "slide_1.jpg";
+        String imName = "ololo.jpg";
+        logger.info("Trying to load library...");
+        try {        
+            api = new ImageApi();
+            logger.debug("");
+        } catch (Exception ex) {
+            logger.error(ex.getMessage());
+        }
+        Mat srcImage = api.loadImage(imName);
+        api.oneMoreMethod(srcImage, imName);
+    }
 
     /**
      *

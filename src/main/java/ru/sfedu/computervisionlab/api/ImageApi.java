@@ -4,6 +4,9 @@ import java.awt.FlowLayout;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -21,6 +24,12 @@ import org.opencv.core.Size;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import java.util.Random;
+import java.util.stream.Collectors;
+import nu.pattern.OpenCV;
+import org.opencv.core.CvType;
+import org.opencv.core.MatOfPoint;
+import org.opencv.core.MatOfPoint2f;
+import org.opencv.photo.Photo;
 
 /**
  *
@@ -39,19 +48,25 @@ public class ImageApi {
     public ImageApi() throws Exception {
         logger.info("Checking OS.....");
         // init the API with curent os..
-        switch (Utils.getOperatingSystemType()) {
-            case LINUX:
-                System.load(config.getConfigurationEntry(Constants.PATH_TO_NATIVE_LIB_LINUX));;
-                break;
-            case WINDOWS:
-                throw new Exception("Windows OS does not support!!!!!!!!");
-            case MACOS:
-                throw new Exception("Mac OS does not support!!!!!!!!");
-            case OTHER:
-                throw new Exception("Current OS does not support!!!!!");
-            default:
-                throw new Exception("Your OS does not support!!!");
-        }
+        try {
+            switch (Utils.getOperatingSystemType()) {
+                case LINUX:
+                    System.load(config.getConfigurationEntry(Constants.PATH_TO_NATIVE_LIB_LINUX));;
+                    break;
+                case WINDOWS:
+                    throw new Exception("Windows OS does not support!!!!!!!!");
+                case MACOS:
+                    throw new Exception("Mac OS does not support!!!!!!!!");
+                case OTHER:
+                    throw new Exception("Current OS does not support!!!!!");
+                default:
+                    throw new Exception("Your OS does not support!!!");
+            } 
+        } catch (java.lang.UnsatisfiedLinkError e){
+            logger.debug(e.getMessage());
+            logger.debug("Trying to load locally...");
+            OpenCV.loadLocally();
+            }
     }
 
     /**
@@ -250,81 +265,108 @@ public class ImageApi {
         return mask;
     }
     
-//    public void oneMoreMethod(Mat srcImage, String imgName) throws IOException{
-//        
-////        Imgcodecs.imwrite(dirPath + "original.jpg", srcImage);
-//        showImage(srcImage);
-//// 1
-//        Mat grayImage = new Mat();
-//        Imgproc.cvtColor(srcImage, grayImage, Imgproc.COLOR_BGR2GRAY);
-////        Imgcodecs.imwrite(destDirPath + "grayImage.jpg", grayImage);
-//        showImage(grayImage);
+    public void oneMoreMethod(Mat srcImage, String imgName) throws IOException{
+        
+        showImage(srcImage, "original");
+// 1 - сделать в оттенках серого
+        Mat grayImage = new Mat();
+        Imgproc.cvtColor(srcImage, grayImage, Imgproc.COLOR_BGR2GRAY);
+//        showImage(grayImage, "1_grayImage_");
 //        saveImage(grayImage, "grayImage_" + imgName);
-//
-//// 2
-//        Mat denoisingImage = new Mat();
-//        Photo.fastNlMeansDenoising(grayImage, denoisingImage);
-//        showImage(denoisingImage);
+
+// 2 - убрать шум
+        Mat denoisingImage = new Mat();
+        Photo.fastNlMeansDenoising(grayImage, denoisingImage);
+//        showImage(denoisingImage, "2_noNoise_");
 //        saveImage(denoisingImage, "noNoise_"  + imgName);
-//
-//// 3
-//        Mat histogramEqualizationImage = new Mat();
-//        Imgproc.equalizeHist(denoisingImage, histogramEqualizationImage);
-//        showImage(histogramEqualizationImage);
+
+// 3 - повысить контастность
+        Mat histogramEqualizationImage = new Mat();
+        Imgproc.equalizeHist(denoisingImage, histogramEqualizationImage);
+//        showImage(histogramEqualizationImage, "3__histogramEq_");
 //        saveImage(histogramEqualizationImage, "histogramEq_"  + imgName);
-////// 4
-//        Mat morphologicalOpeningImage = new Mat();
-//        Mat kernel = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(5, 5));
-//        Imgproc.morphologyEx(histogramEqualizationImage, morphologicalOpeningImage, Imgproc.MORPH_RECT, kernel);
-//        showImage(kernel);
-//        saveImage(kernel, "morphologicalOpening_"  + imgName);
-//// 5
-//        Mat subtractImage = new Mat();
-//        Core.subtract(histogramEqualizationImage, morphologicalOpeningImage, subtractImage);
-//        showImage(subtractImage);
+
+// 4 - размытие темных областей
+        Mat morphologicalOpeningImage = new Mat();
+        Mat kernel = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(5, 5));
+        Imgproc.morphologyEx(histogramEqualizationImage, morphologicalOpeningImage, Imgproc.MORPH_RECT, kernel);
+//        showImage(morphologicalOpeningImage, "4_morphologicalOpening_");
+//        saveImage(morphologicalOpeningImage, "morphologicalOpening_"  + imgName);
+
+// 5 - получение контуров объесков 
+        Mat subtractImage = new Mat();
+        Core.subtract(histogramEqualizationImage, morphologicalOpeningImage, subtractImage);
+//        showImage(subtractImage, "5_subtract_");
 //        saveImage(subtractImage, "subtract_"  + imgName);
-//// 6
-//        Mat thresholdImage = new Mat();
-//        double threshold = Imgproc.threshold(subtractImage, thresholdImage, 50, 255, Imgproc.THRESH_OTSU);
-//        showImage(thresholdImage);
+
+// 6 - делаем черно-белое
+        Mat thresholdImage = new Mat();
+        double threshold = Imgproc.threshold(subtractImage, thresholdImage, 50, 255, Imgproc.THRESH_OTSU);
+//        showImage(thresholdImage, "6_threshold_");
 //        saveImage(thresholdImage, "threshold_"  + imgName);
-//        thresholdImage.convertTo(thresholdImage, CvType.CV_16SC1);
-//// 7
-//        Mat edgeImage = new Mat();
-//        thresholdImage.convertTo(thresholdImage, CvType.CV_8U);
-//        showImage(thresholdImage);
-//        Imgproc.Canny(thresholdImage, edgeImage, threshold, threshold * 3, 3, true);
-//        showImage(edgeImage);
+        thresholdImage.convertTo(thresholdImage, CvType.CV_16SC1); //16-bits signed 1 channel  ?
+// 7 - получили границы 
+        Mat edgeImage = new Mat();
+        thresholdImage.convertTo(thresholdImage, CvType.CV_8U); // 8-bits unsigned  ?
+//        showImage(thresholdImage, "7_1_");
+        Imgproc.Canny(thresholdImage, edgeImage, threshold, threshold * 3, 3, true);
+//        showImage(edgeImage, "7_edge_");
 //        saveImage(edgeImage, "edge_"  + imgName);
-//// 8
-//        Mat dilatedImage = new Mat();
-//        Imgproc.dilate(thresholdImage, dilatedImage, kernel);
-//        showImage(dilatedImage);
+
+// 8 - расфигачили светыле области, то есть контуры
+        Mat dilatedImage = new Mat();
+        Imgproc.dilate(thresholdImage, dilatedImage, kernel);
+//        showImage(dilatedImage, "8_dilation_");
 //        saveImage(dilatedImage, "dilation_"  + imgName);
-//// 9
-//        ArrayList<MatOfPoint> contours = new ArrayList<>();
-//        Imgproc.findContours(dilatedImage, contours, new Mat(), Imgproc.RETR_TREE,
-//                Imgproc.CHAIN_APPROX_SIMPLE);
-//        contours.sort(Collections.reverseOrder(Comparator.comparing(Imgproc::contourArea)));
+
+// 9
+        ArrayList<MatOfPoint> contours = new ArrayList<>();
+        Imgproc.findContours(dilatedImage, contours, new Mat(), Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE);        
+        contours.sort(Collections.reverseOrder(Comparator.comparing(Imgproc::contourArea)));
+        
+        Mat mm = Mat.zeros(dilatedImage.size(), CvType.CV_8UC3);
+        for (int i = 0; i < contours.size(); i++) {
+            Scalar color = new Scalar(Utils.randomInt(0, 255), Utils.randomInt(0, 255), Utils.randomInt(0, 255));
+            Imgproc.drawContours(mm, contours, i, color);
+        }
+        showImage(mm, "contours");
+        saveImage(mm, "9_contours_"  + imgName); 
+        
+        int k = 0;
+        logger.debug(contours.size() + "  count of contours");
 //        for (MatOfPoint contour : contours.subList(0, 10)) {
-//            System.out.println(Imgproc.contourArea(contour));
-//            MatOfPoint2f point2f = new MatOfPoint2f();
-//            MatOfPoint2f approxContour2f = new MatOfPoint2f();
-//            MatOfPoint approxContour = new MatOfPoint();
-//            contour.convertTo(point2f, CvType.CV_32FC2);
-//            double arcLength = Imgproc.arcLength(point2f, true);
-//            Imgproc.approxPolyDP(point2f, approxContour2f, 0.03 * arcLength, true);
-//            approxContour2f.convertTo(approxContour, CvType.CV_32S);
-//            Rect rect = Imgproc.boundingRect(approxContour);
-//            double ratio = (double) rect.height / rect.width;
+        
+        for (MatOfPoint contour : contours.stream().filter(
+                prdct -> prdct.height() >= dilatedImage.height()*0.1 || prdct.width()>= dilatedImage.width()*0.1).collect(Collectors.toList())){            
+            logger.debug(Imgproc.contourArea(contour));
+            Mat mcontour = Mat.zeros(dilatedImage.size(), CvType.CV_8UC3);
+            Scalar color = new Scalar(Utils.randomInt(0, 255), Utils.randomInt(0, 255), Utils.randomInt(0, 255));
+            ArrayList<MatOfPoint> aa = new ArrayList<>();
+            aa.add(contour);            
+            Imgproc.drawContours(mcontour, aa, 0, color);  
+            showImage(mcontour, "contour");
+            MatOfPoint2f point2f = new MatOfPoint2f();
+            MatOfPoint2f approxContour2f = new MatOfPoint2f();
+            MatOfPoint approxContour = new MatOfPoint();
+            contour.convertTo(point2f, CvType.CV_32FC2);
+            double arcLength = Imgproc.arcLength(point2f, true); // длина кривой - true - кривая замкнутая
+            Imgproc.approxPolyDP(point2f, approxContour2f, 0.03 * arcLength, true);
+//            Imgproc.approxPolyDP(point2f, approxContour2f, 0.1 * arcLength, true);
+            approxContour2f.convertTo(approxContour, CvType.CV_32S);
+            Rect rect = Imgproc.boundingRect(approxContour); // получили прямоугольный контур
+            double ratio = (double) rect.height / rect.width;    //отношение сторон     
+// условие для выбора прямоугольников - у которых определенное соотношение сторон            
 //            if (Math.abs(0.3 - ratio) > 0.15) {
 //                continue;
 //            }
-//            Mat submat = srcImage.submat(rect);
-//            Imgproc.resize(submat, submat, new Size(400, 400 * ratio));
-//            showImage(submat);
-//            saveImage(submat, "result_"  + imgName);
-//        }
-//    }
+
+            k++;
+            Mat submat = srcImage.submat(rect);
+            Imgproc.resize(submat, submat, new Size(400, 400 * ratio));
+            showImage(submat, "9_result_" + k);
+            saveImage(submat, "result_" + k + " " + imgName);
+        }
+        logger.debug("count : " + k);
+    }
     
 }
