@@ -1,5 +1,6 @@
 package ru.sfedu.computervisionlab.utils;
 
+import java.io.IOException;
 import java.util.Locale;
 import java.util.Random;
 import org.apache.logging.log4j.LogManager;
@@ -14,6 +15,7 @@ import ru.sfedu.computervisionlab.Constants;
 public class Utils {
     
     private static final Logger logger = LogManager.getLogger();
+    private static ConfigurationUtil config = new ConfigurationUtil(Constants.RESORCES_PATH);
 
     /**
      *
@@ -43,5 +45,13 @@ public class Utils {
         Random rand = new Random();
         int randomNum = rand.nextInt((up - low) + 1) + low;
         return randomNum;
+    }
+    
+    public static String getDir() throws IOException{
+        return config.getConfigurationEntry(Constants.IMAGE_DIR_PATH);    
+    }
+    
+    public static String getDirResults() throws IOException{
+        return config.getConfigurationEntry(Constants.IMAGE_RESULTS_DIR_PATH);    
     }
 }

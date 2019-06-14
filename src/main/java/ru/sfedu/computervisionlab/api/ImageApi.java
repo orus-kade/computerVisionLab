@@ -40,7 +40,6 @@ public class ImageApi {
     private static final Logger logger = LogManager.getLogger();
     private ConfigurationUtil config = new ConfigurationUtil(Constants.RESORCES_PATH);
 
-    
     /**
      *
      * @throws Exception
@@ -51,7 +50,8 @@ public class ImageApi {
         try {
             switch (Utils.getOperatingSystemType()) {
                 case LINUX:
-                    System.load(config.getConfigurationEntry(Constants.PATH_TO_NATIVE_LIB_LINUX));;
+                    System.load(config.getConfigurationEntry(Constants.PATH_TO_NATIVE_LIB_LINUX));
+                    ;
                     break;
                 case WINDOWS:
                     throw new Exception("Windows OS does not support!!!!!!!!");
@@ -61,12 +61,12 @@ public class ImageApi {
                     throw new Exception("Current OS does not support!!!!!");
                 default:
                     throw new Exception("Your OS does not support!!!");
-            } 
-        } catch (java.lang.UnsatisfiedLinkError e){
-            logger.debug(e.getMessage());
-            logger.debug("Trying to load locally...");
-            OpenCV.loadLocally();
             }
+        } catch (java.lang.UnsatisfiedLinkError e) {
+            logger.debug(e.getMessage());
+            logger.debug("Trying to load locally");
+            OpenCV.loadLocally();
+        }
     }
 
     /**
@@ -78,16 +78,16 @@ public class ImageApi {
     public Mat loadImage(String imageName) throws IOException {
         logger.info("Loading image " + imageName + " ...");
         Mat srcImage = Imgcodecs.imread(config.getConfigurationEntry(Constants.IMAGE_DIR_PATH) + imageName);
-        return srcImage;    
+        return srcImage;
     }
-    
+
     /**
      *
      * @param srcImage
      * @param channel
      * @return
      */
-    public Mat setChannelZero(Mat srcImage, Constants.Channels channel){
+    public Mat setChannelZero(Mat srcImage, Constants.Channels channel) {
         logger.info("Changing " + channel.toString() + " channel...");
         int ch = channel.ordinal();
         int totalBytes = (int) (srcImage.total() * srcImage.elemSize());
@@ -129,80 +129,56 @@ public class ImageApi {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
+
     /**
      *
      * @param image
      * @param imName
      * @throws IOException
      */
-    public void saveImage(Mat image, String imName) throws IOException{
-        logger.info("Saving image " + imName +  " ...");
+    public void saveImage(Mat image, String imName) throws IOException {
+        logger.info("Saving image " + imName + " ...");
         Imgcodecs.imwrite(config.getConfigurationEntry(Constants.IMAGE_RESULTS_DIR_PATH) + imName, image);
     }
-    
-    /**
-     *
-     * @param imName
-     * @param i
-     * @throws IOException
-     */
-    public void filtration(String imName, int i) throws IOException{
-        Mat image = loadImage(imName);
+
+    public Mat filtrationBlur(Mat image, int i) throws IOException {;
         Mat dst = image.clone();
-        showImage(dst, imName);
-        //blur размытие
         Imgproc.blur(image, dst, new Size(i, i));
-        String newName = "blur_" + i + "x" + i + "_" + imName;
-        saveImage(dst, newName);
-        showImage(dst, newName);
-        //GaussianBlur 
-        Imgproc.GaussianBlur(image, dst, new Size(i, i), 0);
-        newName = "gaussianBlur_" + i + "x" + i + "_" + imName;
-        saveImage(dst, newName);
-        showImage(dst, newName);
-        //medianBlur
+        return dst;
+    }
+
+    public Mat filtrationMedianBlur(Mat image, int i) throws IOException {
+        Mat dst = image.clone();
         Imgproc.medianBlur(image, dst, i);
-        newName = "medianBlur_" + i + "_" + imName;
-        saveImage(dst, newName);
-        showImage(dst, newName);
-        //bilateralFilter
-        Imgproc.bilateralFilter(image, dst, i, i*2, i*2);
-        newName = "bilateralFilter_" + i + "_" + imName;
-        saveImage(dst, newName);
-        showImage(dst, newName);
+        return dst;
     }
-    
-    /**
-     *
-     * @param fileName
-     * @param i
-     * @param morfType
-     * @param mType
-     */
-    public void morfologyTest(String fileName, int i, String morfType, int mType) {
-        try {            
-            Mat src = loadImage(fileName);
-            Mat dst = src.clone();    
-            
-            String name = morfType + "_" + i + "_";
-            Mat element = Imgproc.getStructuringElement(mType, new Size(i, i));
-            showImage(src, fileName);
-            
-            Imgproc.erode(src, dst, element);
-            saveImage(dst, name + "erode_" + fileName);
-            showImage(dst, name + "erode_" + fileName);
-            
-            dst = src.clone();
-            Imgproc.dilate(src, dst, element);
-            saveImage(dst, name + "dilate_" + fileName);
-            showImage(dst, name + "dilate_" + fileName);
-            
-        } catch (Exception ex) {
-            System.err.println(ex.getMessage());
-        }
+
+    public Mat filtrationGaussianBlur(Mat image, int i) throws IOException {
+        Mat dst = image.clone();
+        Imgproc.GaussianBlur(image, dst, new Size(i, i), 0);
+        return dst;
     }
-    
+
+    public Mat filtrationBilateralFilter(Mat image, int i) throws IOException {
+        Mat dst = image.clone();
+        Imgproc.bilateralFilter(image, dst, i, i * 2, i * 2);
+        return dst;
+    }
+
+    public Mat dilate(Mat src, int i, int mType) {
+        Mat dst = src.clone();
+        Mat element = Imgproc.getStructuringElement(mType, new Size(i, i));
+        Imgproc.dilate(src, dst, element);
+        return dst;
+    }
+
+    public Mat erode(Mat src, int i, int mType) {
+        Mat dst = src.clone();
+        Mat element = Imgproc.getStructuringElement(mType, new Size(i, i));
+        Imgproc.erode(src, dst, element);
+        return dst;
+    }
+
     /**
      *
      * @param srcImage
@@ -218,55 +194,69 @@ public class ImageApi {
         int g = Utils.randomInt(0, 255);
         int b = Utils.randomInt(0, 255);
         int intVal = Utils.randomInt(0, 255);
-        
+
         logger.debug(r + " " + g + " " + b + " " + intVal);
-        
-        if (color == null){
+
+        if (color == null) {
             color = new Scalar(r, g, b);
-        }
-        if (loDiff == null){
             loDiff = new Scalar(intVal, intVal, intVal);
-        }
-        if (upDiff == null){
             upDiff = new Scalar(intVal, intVal, intVal);
+        } else {
+            if (loDiff == null) {
+                loDiff = new Scalar(intVal, intVal, intVal);
+            }
+            if (upDiff == null) {
+                upDiff = new Scalar(intVal, intVal, intVal);
+            }
         }
-        
-        if (seedPoint == null){
-            seedPoint = new Point(srcImage.width()/2, srcImage.height()/2);
+
+        if (seedPoint == null) {
+            seedPoint = new Point(srcImage.width() / 4, srcImage.height() / 4);
         }
-        
+
         Mat mask = new Mat();
-        showImage(srcImage, "before");
         Imgproc.floodFill(srcImage, mask, seedPoint, color, rect, loDiff, upDiff, Imgproc.FLOODFILL_FIXED_RANGE);
-        showImage(srcImage, "after");
         return srcImage;
     }
-    
+
     /**
      *
      * @param srcImage
      */
-    public Mat pyramids(Mat srcImage, int i){
+    public Mat pyramids(Mat srcImage) throws Exception {
         Size imSize = new Size(srcImage.cols(), srcImage.rows());
 //        Size downSize = new Size(srcImage.cols()/i, srcImage.rows()/i);
-//        logger.debug(srcImage.cols()/i + " " + srcImage.rows()/i);
+        logger.debug(srcImage.cols()/2 + " " + srcImage.rows()/2);
+        if (srcImage.cols()%2 != 0 || srcImage.rows()%2 != 0){
+            throw new Exception("Size is not suatible");
+        }
         Mat mask = srcImage.clone();
-        showImage(srcImage, "source");
-        for (int k = 0; k<i; k++){
-            Imgproc.pyrDown(mask, mask);
-            showImage(mask, "pyrDown_" + k);
-        }
-        for (int k = 0; k<i; k++){
-            Imgproc.pyrUp(mask, mask);
-            showImage(mask, "pyrUp_" + k);
-        }
+        Imgproc.pyrDown(mask, mask);
+        Imgproc.pyrUp(mask, mask);
         Core.subtract(srcImage, mask, mask);
-        showImage(mask, "subtrack1");
+//        showImage(mask, "subtrack1");
         return mask;
     }
     
-    public void oneMoreMethod(Mat srcImage, String imgName) throws IOException{
-        
+    public Mat pyramidUp(Mat srcImage, int i){
+        Mat mask = srcImage.clone();
+//        Size size = new Size (mask.cols() *  Math.pow(2, 2), mask.rows() * Math.pow(2, 2));
+        for (int k = 0; k < i; k++) {
+            Imgproc.pyrUp(mask, mask);
+        }   
+        return mask;
+    }
+    
+    public Mat pyramidDown(Mat srcImage, int i){
+        Mat mask = srcImage.clone();
+        for (int k = 0; k < i; k++) {
+            Imgproc.pyrDown(mask, mask);
+        }   
+        return mask;
+    }
+
+    public void oneMoreMethod(Mat srcImage, String imgName) throws IOException {
+
         showImage(srcImage, "original");
 // 1 - сделать в оттенках серого
         Mat grayImage = new Mat();
@@ -321,44 +311,55 @@ public class ImageApi {
 
 // 9
         ArrayList<MatOfPoint> contours = new ArrayList<>();
-        Imgproc.findContours(dilatedImage, contours, new Mat(), Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE);        
+        Imgproc.findContours(dilatedImage, contours, new Mat(), Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE);
         contours.sort(Collections.reverseOrder(Comparator.comparing(Imgproc::contourArea)));
-        
+
         Mat mm = Mat.zeros(dilatedImage.size(), CvType.CV_8UC3);
         for (int i = 0; i < contours.size(); i++) {
             Scalar color = new Scalar(Utils.randomInt(0, 255), Utils.randomInt(0, 255), Utils.randomInt(0, 255));
             Imgproc.drawContours(mm, contours, i, color);
         }
         showImage(mm, "contours");
-        saveImage(mm, "9_contours_"  + imgName); 
-        
+        saveImage(mm, "9_contours_" + imgName);
+
         int k = 0;
         logger.debug(contours.size() + "  count of contours");
 //        for (MatOfPoint contour : contours.subList(0, 10)) {
-        
+
         for (MatOfPoint contour : contours.stream().filter(
-                prdct -> prdct.height() >= dilatedImage.height()*0.1 || prdct.width()>= dilatedImage.width()*0.1).collect(Collectors.toList())){            
+                prdct -> prdct.height() >= dilatedImage.height() * 0.2 || prdct.width() >= dilatedImage.width() * 0.2).collect(Collectors.toList())) {
             logger.debug(Imgproc.contourArea(contour));
-            Mat mcontour = Mat.zeros(dilatedImage.size(), CvType.CV_8UC3);
-            Scalar color = new Scalar(Utils.randomInt(0, 255), Utils.randomInt(0, 255), Utils.randomInt(0, 255));
-            ArrayList<MatOfPoint> aa = new ArrayList<>();
-            aa.add(contour);            
-            Imgproc.drawContours(mcontour, aa, 0, color);  
-            showImage(mcontour, "contour");
+//            Mat mcontour = Mat.zeros(dilatedImage.size(), CvType.CV_8UC3);
+//            Scalar color = new Scalar(Utils.randomInt(0, 255), Utils.randomInt(0, 255), Utils.randomInt(0, 255));
+//            ArrayList<MatOfPoint> aa = new ArrayList<>();
+//            aa.add(contour);
+//            Imgproc.drawContours(mcontour, aa, 0, color);
+//            showImage(mcontour, "contour");
+            
             MatOfPoint2f point2f = new MatOfPoint2f();
             MatOfPoint2f approxContour2f = new MatOfPoint2f();
             MatOfPoint approxContour = new MatOfPoint();
             contour.convertTo(point2f, CvType.CV_32FC2);
+            
             double arcLength = Imgproc.arcLength(point2f, true); // длина кривой - true - кривая замкнутая
             Imgproc.approxPolyDP(point2f, approxContour2f, 0.03 * arcLength, true);
 //            Imgproc.approxPolyDP(point2f, approxContour2f, 0.1 * arcLength, true);
             approxContour2f.convertTo(approxContour, CvType.CV_32S);
+            
+            Mat mcontour = Mat.zeros(dilatedImage.size(), CvType.CV_8UC3);
+            Scalar color = new Scalar(Utils.randomInt(0, 255), Utils.randomInt(0, 255), Utils.randomInt(0, 255));
+            ArrayList<MatOfPoint> aa = new ArrayList<>();
+            aa.add(approxContour);
+            Imgproc.drawContours(mcontour, aa, 0, color);
+            showImage(mcontour, "approxContour");
+            
+            
             Rect rect = Imgproc.boundingRect(approxContour); // получили прямоугольный контур
             double ratio = (double) rect.height / rect.width;    //отношение сторон     
 // условие для выбора прямоугольников - у которых определенное соотношение сторон            
-//            if (Math.abs(0.3 - ratio) > 0.15) {
-//                continue;
-//            }
+            if (Math.abs(0.3 - ratio) > 0.15) {
+                continue;
+            }
 
             k++;
             Mat submat = srcImage.submat(rect);
@@ -368,5 +369,5 @@ public class ImageApi {
         }
         logger.debug("count : " + k);
     }
-    
+
 }
