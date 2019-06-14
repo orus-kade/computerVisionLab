@@ -256,7 +256,7 @@ public class ImageApi {
         return mask;
     }
 
-    public int oneMoreMethod(Mat srcImage, Size min, Size max) throws IOException {
+    public int findRect(Mat srcImage, Size min, Size max) throws IOException {
 
 //        showImage(srcImage, "original");
 // 1 - сделать в оттенках серого

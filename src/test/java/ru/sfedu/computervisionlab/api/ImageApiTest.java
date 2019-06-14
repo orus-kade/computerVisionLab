@@ -262,7 +262,7 @@ public class ImageApiTest {
         Mat srcImage = api.loadImage(imName);
         Size min = new Size(50, 50);
         Size max = new Size(600, 600);
-        api.oneMoreMethod(srcImage, min, max);
+        api.findRect(srcImage, min, max);
     }
 
     /**
