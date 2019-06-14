@@ -249,7 +249,9 @@ public class ImageApiTest {
 //        String imName = "Untitled.png";
 //        String imName = "slide_1.jpg";
 //        String imName = "ololo.jpg";
-        String imName = "qqq.jpg";
+//        String imName = "qqq.jpg";
+//        String imName = "sss.png";
+        String imName = "ddd.png";
         logger.info("Trying to load library...");
         try {
             api = new ImageApi();
@@ -258,7 +260,9 @@ public class ImageApiTest {
             logger.error(ex.getMessage());
         }
         Mat srcImage = api.loadImage(imName);
-        api.oneMoreMethod(srcImage, imName);
+        Size min = new Size(50, 50);
+        Size max = new Size(600, 600);
+        api.oneMoreMethod(srcImage, min, max);
     }
 
     /**

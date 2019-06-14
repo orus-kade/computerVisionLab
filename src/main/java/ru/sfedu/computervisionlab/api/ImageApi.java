@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -226,8 +227,8 @@ public class ImageApi {
     public Mat pyramids(Mat srcImage) throws Exception {
         Size imSize = new Size(srcImage.cols(), srcImage.rows());
 //        Size downSize = new Size(srcImage.cols()/i, srcImage.rows()/i);
-        logger.debug(srcImage.cols()/2 + " " + srcImage.rows()/2);
-        if (srcImage.cols()%2 != 0 || srcImage.rows()%2 != 0){
+        logger.debug(srcImage.cols() / 2 + " " + srcImage.rows() / 2);
+        if (srcImage.cols() % 2 != 0 || srcImage.rows() % 2 != 0) {
             throw new Exception("Size is not suatible");
         }
         Mat mask = srcImage.clone();
@@ -237,137 +238,117 @@ public class ImageApi {
 //        showImage(mask, "subtrack1");
         return mask;
     }
-    
-    public Mat pyramidUp(Mat srcImage, int i){
+
+    public Mat pyramidUp(Mat srcImage, int i) {
         Mat mask = srcImage.clone();
 //        Size size = new Size (mask.cols() *  Math.pow(2, 2), mask.rows() * Math.pow(2, 2));
         for (int k = 0; k < i; k++) {
             Imgproc.pyrUp(mask, mask);
-        }   
+        }
         return mask;
     }
-    
-    public Mat pyramidDown(Mat srcImage, int i){
+
+    public Mat pyramidDown(Mat srcImage, int i) {
         Mat mask = srcImage.clone();
         for (int k = 0; k < i; k++) {
             Imgproc.pyrDown(mask, mask);
-        }   
+        }
         return mask;
     }
 
-    public void oneMoreMethod(Mat srcImage, String imgName) throws IOException {
+    public int oneMoreMethod(Mat srcImage, Size min, Size max) throws IOException {
 
-        showImage(srcImage, "original");
+//        showImage(srcImage, "original");
 // 1 - сделать в оттенках серого
         Mat grayImage = new Mat();
         Imgproc.cvtColor(srcImage, grayImage, Imgproc.COLOR_BGR2GRAY);
-//        showImage(grayImage, "1_grayImage_");
-//        saveImage(grayImage, "grayImage_" + imgName);
 
 // 2 - убрать шум
         Mat denoisingImage = new Mat();
         Photo.fastNlMeansDenoising(grayImage, denoisingImage);
-//        showImage(denoisingImage, "2_noNoise_");
-//        saveImage(denoisingImage, "noNoise_"  + imgName);
 
 // 3 - повысить контастность
         Mat histogramEqualizationImage = new Mat();
         Imgproc.equalizeHist(denoisingImage, histogramEqualizationImage);
-//        showImage(histogramEqualizationImage, "3__histogramEq_");
-//        saveImage(histogramEqualizationImage, "histogramEq_"  + imgName);
 
 // 4 - размытие темных областей
         Mat morphologicalOpeningImage = new Mat();
         Mat kernel = Imgproc.getStructuringElement(Imgproc.MORPH_RECT, new Size(5, 5));
-        Imgproc.morphologyEx(histogramEqualizationImage, morphologicalOpeningImage, Imgproc.MORPH_RECT, kernel);
-//        showImage(morphologicalOpeningImage, "4_morphologicalOpening_");
-//        saveImage(morphologicalOpeningImage, "morphologicalOpening_"  + imgName);
+        Imgproc.morphologyEx(histogramEqualizationImage, morphologicalOpeningImage, Imgproc.MORPH_RECT, kernel);;
 
 // 5 - получение контуров объесков 
         Mat subtractImage = new Mat();
         Core.subtract(histogramEqualizationImage, morphologicalOpeningImage, subtractImage);
-//        showImage(subtractImage, "5_subtract_");
-//        saveImage(subtractImage, "subtract_"  + imgName);
 
 // 6 - делаем черно-белое
         Mat thresholdImage = new Mat();
         double threshold = Imgproc.threshold(subtractImage, thresholdImage, 50, 255, Imgproc.THRESH_OTSU);
-//        showImage(thresholdImage, "6_threshold_");
-//        saveImage(thresholdImage, "threshold_"  + imgName);
+
         thresholdImage.convertTo(thresholdImage, CvType.CV_16SC1); //16-bits signed 1 channel  ?
 // 7 - получили границы 
         Mat edgeImage = new Mat();
         thresholdImage.convertTo(thresholdImage, CvType.CV_8U); // 8-bits unsigned  ?
-//        showImage(thresholdImage, "7_1_");
+
         Imgproc.Canny(thresholdImage, edgeImage, threshold, threshold * 3, 3, true);
-//        showImage(edgeImage, "7_edge_");
-//        saveImage(edgeImage, "edge_"  + imgName);
 
 // 8 - расфигачили светыле области, то есть контуры
         Mat dilatedImage = new Mat();
         Imgproc.dilate(thresholdImage, dilatedImage, kernel);
-//        showImage(dilatedImage, "8_dilation_");
-//        saveImage(dilatedImage, "dilation_"  + imgName);
 
 // 9
         ArrayList<MatOfPoint> contours = new ArrayList<>();
         Imgproc.findContours(dilatedImage, contours, new Mat(), Imgproc.RETR_TREE, Imgproc.CHAIN_APPROX_SIMPLE);
         contours.sort(Collections.reverseOrder(Comparator.comparing(Imgproc::contourArea)));
 
-        Mat mm = Mat.zeros(dilatedImage.size(), CvType.CV_8UC3);
-        for (int i = 0; i < contours.size(); i++) {
-            Scalar color = new Scalar(Utils.randomInt(0, 255), Utils.randomInt(0, 255), Utils.randomInt(0, 255));
-            Imgproc.drawContours(mm, contours, i, color);
-        }
-        showImage(mm, "contours");
-        saveImage(mm, "9_contours_" + imgName);
-
-        int k = 0;
-        logger.debug(contours.size() + "  count of contours");
-//        for (MatOfPoint contour : contours.subList(0, 10)) {
-
-        for (MatOfPoint contour : contours.stream().filter(
-                prdct -> prdct.height() >= dilatedImage.height() * 0.2 || prdct.width() >= dilatedImage.width() * 0.2).collect(Collectors.toList())) {
-            logger.debug(Imgproc.contourArea(contour));
-//            Mat mcontour = Mat.zeros(dilatedImage.size(), CvType.CV_8UC3);
+//          вывод всех контуров        
+//        Mat mm = Mat.zeros(dilatedImage.size(), CvType.CV_8UC3);
+//        for (int i = 0; i < contours.size(); i++) {
 //            Scalar color = new Scalar(Utils.randomInt(0, 255), Utils.randomInt(0, 255), Utils.randomInt(0, 255));
-//            ArrayList<MatOfPoint> aa = new ArrayList<>();
-//            aa.add(contour);
-//            Imgproc.drawContours(mcontour, aa, 0, color);
-//            showImage(mcontour, "contour");
-            
+//            Imgproc.drawContours(mm, contours, i, color);
+//        }
+//        showImage(mm, "contours");
+
+        logger.debug(contours.size() + "  count of contours");
+
+        List<Mat> mats = new ArrayList<>();
+
+        for (MatOfPoint contour : contours) {
             MatOfPoint2f point2f = new MatOfPoint2f();
             MatOfPoint2f approxContour2f = new MatOfPoint2f();
             MatOfPoint approxContour = new MatOfPoint();
             contour.convertTo(point2f, CvType.CV_32FC2);
-            
+
             double arcLength = Imgproc.arcLength(point2f, true); // длина кривой - true - кривая замкнутая
             Imgproc.approxPolyDP(point2f, approxContour2f, 0.03 * arcLength, true);
-//            Imgproc.approxPolyDP(point2f, approxContour2f, 0.1 * arcLength, true);
             approxContour2f.convertTo(approxContour, CvType.CV_32S);
-            
-            Mat mcontour = Mat.zeros(dilatedImage.size(), CvType.CV_8UC3);
-            Scalar color = new Scalar(Utils.randomInt(0, 255), Utils.randomInt(0, 255), Utils.randomInt(0, 255));
-            ArrayList<MatOfPoint> aa = new ArrayList<>();
-            aa.add(approxContour);
-            Imgproc.drawContours(mcontour, aa, 0, color);
-            showImage(mcontour, "approxContour");
-            
-            
-            Rect rect = Imgproc.boundingRect(approxContour); // получили прямоугольный контур
-            double ratio = (double) rect.height / rect.width;    //отношение сторон     
-// условие для выбора прямоугольников - у которых определенное соотношение сторон            
-            if (Math.abs(0.3 - ratio) > 0.15) {
-                continue;
-            }
 
-            k++;
-            Mat submat = srcImage.submat(rect);
-            Imgproc.resize(submat, submat, new Size(400, 400 * ratio));
-            showImage(submat, "9_result_" + k);
-            saveImage(submat, "result_" + k + " " + imgName);
+            if (approxContour.total() == 4) {
+                List<Point> points = approxContour.toList();
+                double d1 = Math.sqrt(Math.pow((points.get(0).x - points.get(1).x), 2) + Math.pow((points.get(0).y - points.get(1).y), 2));
+                double d2 = Math.sqrt(Math.pow((points.get(2).x - points.get(3).x), 2) + Math.pow((points.get(2).y - points.get(3).y), 2));
+                Rect rect = Imgproc.boundingRect(approxContour); // получили прямоугольный контур
+                logger.debug("rect size: w_h " + rect.width + "_" + rect.height + "   size " + rect.size());
+
+                if (rect.width >= min.width && rect.width <= max.width
+                        && rect.height >= min.height && rect.height <= max.height
+                        && (Math.abs(d1 - d2) < 5)) {                   
+                    logger.debug("d1_d2" + d1 + "_" + d2);
+// вывод контура
+//                Mat mcontour = Mat.zeros(dilatedImage.size(), CvType.CV_8UC3);
+//                Scalar color = new Scalar(Utils.randomInt(0, 255), Utils.randomInt(0, 255), Utils.randomInt(0, 255));
+//                ArrayList<MatOfPoint> aa = new ArrayList<>();
+//                aa.add(approxContour);
+//                Imgproc.drawContours(mcontour, aa, 0, color);
+//                showImage(mcontour, "approxContour" + mats.size()); 
+
+                    Mat submat = srcImage.submat(rect);
+//                showImage(submat, "9_result_" + mats.size());
+                    mats.add(submat);
+                }
+            }
         }
-        logger.debug("count : " + k);
+        logger.debug("count : " + mats.size());
+        return mats.size();
     }
 
 }
